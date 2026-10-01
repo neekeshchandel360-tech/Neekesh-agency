@@ -1,0 +1,6 @@
+# User-agent configuration for Neekesh Agency
+User-agent: *
+Allow: /
+
+# Sitemap location specification
+Sitemap: https://netlify.app
