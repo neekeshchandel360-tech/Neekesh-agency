@@ -918,6 +918,358 @@
         }
 
         /* -------------------------
+           MOBILE-FIRST LAYOUT HARDENING
+        ------------------------- */
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        section, main, header, footer, .container {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: calc(var(--container) + 40px);
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .navbar, .hero-content, .portfolio-header, .contact-box,
+        .service-card, .project-card, .trust-item, .footer-inner,
+        .contact-form, .form-field {
+            min-width: 0;
+        }
+
+        .hero h1, .section-title, .contact-box h2,
+        .service-card h3, .project-info h3, .logo {
+            overflow-wrap: break-word;
+            word-break: normal;
+            text-wrap: balance;
+        }
+
+        .hero, .services, #portfolio, .contact-section {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 72px;
+            }
+
+            section {
+                width: 100%;
+                padding: 78px 0;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 100%;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            header {
+                width: 100%;
+            }
+
+            .navbar {
+                width: 100%;
+                min-height: 68px;
+                gap: 12px;
+                padding-top: 4px;
+                padding-bottom: 4px;
+            }
+
+            .logo {
+                flex: 0 0 auto;
+                font-size: clamp(.82rem, 3.5vw, 1rem);
+                letter-spacing: -.04em;
+                white-space: nowrap;
+            }
+
+            .nav-links {
+                flex: 1 1 auto;
+                min-width: 0;
+                justify-content: flex-end;
+                gap: clamp(8px, 2.4vw, 15px);
+            }
+
+            .nav-links a {
+                white-space: nowrap;
+                font-size: clamp(.62rem, 2.15vw, .72rem);
+            }
+
+            .nav-links a::after {
+                bottom: -5px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 112px;
+                padding-bottom: 70px;
+                align-items: flex-start;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                width: 100%;
+                max-width: 100%;
+                font-size: clamp(2.65rem, 12vw, 4.8rem);
+                line-height: .96;
+                letter-spacing: -.055em;
+            }
+
+            .hero-description {
+                max-width: 100%;
+                margin-top: 24px;
+                font-size: clamp(.92rem, 3.8vw, 1.02rem);
+                line-height: 1.72;
+            }
+
+            .hero-actions, .contact-actions {
+                width: 100%;
+            }
+
+            .hero-actions .btn, .contact-actions .btn {
+                min-width: 0;
+            }
+
+            .trust-strip {
+                width: 100%;
+                max-width: 100%;
+                margin-top: 50px;
+                grid-template-columns: 1fr;
+            }
+
+            .trust-item {
+                width: 100%;
+                padding: 16px 18px;
+            }
+
+            .section-title {
+                width: 100%;
+                max-width: 100%;
+                font-size: clamp(2rem, 9vw, 3.25rem);
+                line-height: 1;
+                letter-spacing: -.05em;
+            }
+
+            .section-description {
+                width: 100%;
+                max-width: 100%;
+                font-size: .94rem;
+                line-height: 1.72;
+            }
+
+            .services-grid, .portfolio-grid {
+                width: 100%;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 16px;
+            }
+
+            .service-card, .project-card {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .service-card {
+                min-height: 0;
+                padding: 25px;
+            }
+
+            .service-card h3 {
+                margin-top: 48px;
+                font-size: clamp(1.05rem, 5vw, 1.22rem);
+                line-height: 1.28;
+            }
+
+            .service-card p, .project-info p {
+                font-size: .86rem;
+                line-height: 1.7;
+            }
+
+            .portfolio-header {
+                width: 100%;
+                display: block;
+            }
+
+            .portfolio-header .section-description {
+                margin-top: 18px;
+            }
+
+            .project-visual {
+                width: 100%;
+                height: clamp(205px, 58vw, 250px);
+            }
+
+            .project-info {
+                padding: 21px;
+            }
+
+            .contact-section {
+                padding-bottom: 82px;
+            }
+
+            .contact-box {
+                width: 100%;
+                padding: clamp(24px, 6vw, 38px);
+                border-radius: 21px;
+            }
+
+            .contact-box h2 {
+                width: 100%;
+                max-width: 100%;
+                font-size: clamp(2.05rem, 9.8vw, 3.7rem);
+                line-height: 1;
+                letter-spacing: -.055em;
+            }
+
+            .contact-copy {
+                width: 100%;
+                max-width: 100%;
+                font-size: .92rem;
+                line-height: 1.72;
+            }
+
+            .contact-form {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .form-grid {
+                width: 100%;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 10px;
+            }
+
+            .form-field, .form-field.full {
+                width: 100%;
+                min-width: 0;
+                grid-column: auto;
+            }
+
+            .form-field input, .form-field textarea {
+                min-width: 0;
+                font-size: 16px;
+            }
+
+            .contact-form .btn {
+                width: 100%;
+            }
+
+            footer {
+                width: 100%;
+                padding: 26px 0;
+            }
+
+            .footer-inner {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 14px;
+                align-items: start;
+            }
+
+            .footer-legal {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 10px;
+                align-items: start;
+            }
+
+            .footer-copy {
+                width: 100%;
+                line-height: 1.6;
+            }
+
+            .legal-dialog, .not-found-card {
+                width: 100%;
+                max-width: 100%;
+                max-height: 84svh;
+                padding: 24px 20px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .navbar {
+                gap: 8px;
+            }
+
+            .logo {
+                font-size: .79rem;
+            }
+
+            .nav-links {
+                gap: 7px;
+            }
+
+            .nav-links a {
+                font-size: .60rem;
+            }
+
+            .hero {
+                padding-top: 105px;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.35rem, 12.7vw, 3.35rem);
+            }
+
+            .hero-badge {
+                max-width: 100%;
+                font-size: .65rem;
+            }
+
+            .hero-actions, .contact-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .btn, .contact-actions .btn {
+                width: 100%;
+            }
+
+            .section-title {
+                font-size: clamp(1.9rem, 9.5vw, 2.7rem);
+            }
+
+            .contact-box h2 {
+                font-size: clamp(1.95rem, 10vw, 3rem);
+            }
+
+            .service-card {
+                padding: 22px;
+            }
+
+            .project-visual {
+                height: 205px;
+            }
+        }
+
+        /* -------------------------
            ACCESSIBILITY / FOCUS
         ------------------------- */
         :focus-visible {
